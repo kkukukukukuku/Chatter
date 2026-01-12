@@ -9,7 +9,7 @@ to start you need to change ip in `Client.java`. then start `Server.java` on one
 ### 🎖️Future plans
 - upgrade exception handling
 - multiple clients
-- remote cliens(not on exact wifi)
+- remote clients(not on exact wifi)
 - upgrade design
 
 
