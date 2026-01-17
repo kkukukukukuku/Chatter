@@ -13,7 +13,7 @@ public class Client {
     private static PrintWriter out;
 
     public static void main(String[] args) {
-        Thread gui = new Thread(() -> {//popjsodivjlskvj
+        Thread gui = new Thread(() -> {
             Gui.display();
             synchronized(lock) {
                 isDone = true;
