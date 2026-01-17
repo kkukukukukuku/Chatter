@@ -1,17 +1,16 @@
 package gui;
 
-import server.*;
-
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.PrintWriter;
 
 public class TextInput extends JFrame {
     static String username = "";
     public static JTextArea textArea = new JTextArea(username + ">", 100, 90);
     private static ActionListener sendListener;
-
+    private static PrintWriter out;
     public TextInput() {
 
         textArea.setLineWrap(true);
@@ -37,18 +36,18 @@ public class TextInput extends JFrame {
                             doc.insertString(caretPos, "\n" + username + ">", null);
                             textArea.setCaretPosition(caretPos + 2 + username.length());
                             if (sendListener != null) {
-                                System.out.println("Вызываю sendListener с: '" + message + "'");
+                                System.out.println("setting sendListener: '" + message + "'");
                                 sendListener.actionPerformed(
                                         new ActionEvent(this, ActionEvent.ACTION_PERFORMED, message));
                             } else {
-                                System.out.println("sendListener НЕ установлен!");
+                                System.out.println("sendListener is not set");
                             }
 
                         } catch (BadLocationException ex) {
                             ex.printStackTrace();
                         }
                     } else {
-                        System.out.println("Сообщение пустое, игнорирую");
+                        System.out.println("blank");
                         try {
                             Document doc = textArea.getDocument();
                             int caretPos = textArea.getCaretPosition();
@@ -151,18 +150,18 @@ public class TextInput extends JFrame {
 
             if (username != null && !username.isEmpty() && lastLine.startsWith(username + ">")) {
                 String result = lastLine.substring(username.length() + 1);
-                System.out.println("Возвращаю (с username): '" + result + "'");
+                System.out.println("return (username): '" + result + "'");
                 return result;
             } else if (lastLine.startsWith(">")) {
                 String result = lastLine.substring(1);
-                System.out.println("Возвращаю (без username): '" + result + "'");
+                System.out.println("return (without username): '" + result + "'");
                 return result;
             }
-            System.out.println("Возвращаю всю строку: '" + lastLine + "'");
+            System.out.println("return: '" + lastLine + "'");
             return lastLine;
         }
 
-        System.out.println("Нет строк, возвращаю пустую строку");
+        System.out.println("no input");
         return "";
     }
 
@@ -171,7 +170,7 @@ public class TextInput extends JFrame {
             String currentInput = getCurrentInput().trim();
             if (!currentInput.isEmpty()) {
                 username = currentInput;
-                System.out.println("TextInput: username установлен: " + username);
+                System.out.println("TextInput: username is set: " + username);
             }
         }
         return username != null ? username : "";
@@ -187,5 +186,12 @@ public class TextInput extends JFrame {
     }
     public static void setOnSendListener(ActionListener listener) {
         sendListener = listener;
+    }
+    public static void setOut( PrintWriter writer) {
+        out = writer;
+    }
+
+    public static PrintWriter getOut() {
+        return out;
     }
 }
