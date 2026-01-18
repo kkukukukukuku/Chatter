@@ -16,7 +16,7 @@ public class Client {
         Thread main = new Thread(() -> {
             try {//connection to server
                 System.out.println("connecting...");
-                Socket socket = new Socket("192.168.1.49", 1234);//your ip...
+                Socket socket = new Socket("your ip...", 1234);//
                 OutputStream outputStream = socket.getOutputStream();
                 out = new PrintWriter(outputStream, true);
                 BufferedReader in = new BufferedReader(
