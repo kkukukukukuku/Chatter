@@ -1,0 +1,206 @@
+/* Основные стили */
+@font-face {
+    font-family: 'SixtyFour';
+    src: url('fonts/SixtyFour.ttf');
+}
+
+* {
+    -fx-font-family: 'SixtyFour';
+}
+
+.root-pane {
+    -fx-background-color: #383a3d;
+}
+
+/* Верхняя панель */
+.top-panel {
+    -fx-background-color: #080808;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
+}
+
+.title-label {
+    -fx-text-fill: #11fc00;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 1);
+}
+
+/* Центральная панель формы */
+.form-panel {
+    -fx-background-color: #383a3d;
+    -fx-background-radius: 10;
+    -fx-border-color: #11fc00;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(17, 252, 0, 0.3), 10, 0, 0, 2);
+}
+.input-panel{
+    -fx-background-color: #383a3d;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(17, 252, 0, 0.3), 10, 0, 0, 2);
+}
+.prefix{
+    -fx-background-color: #383a3d;
+    -fx-border-width: 0;
+}
+
+.input-grid {
+    -fx-background-color: #383a3d;
+    -fx-background-radius: 8;
+    -fx-border-color: #11fc00;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+}
+
+.input-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #11fc00;
+}
+
+/* Поля ввода */
+.text-field {
+    -fx-background-color: #262729;
+    -fx-border-color: #11fc00;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+    -fx-text-fill: #11fc00;
+}
+
+.text-field:focused {
+    -fx-border-color: #00ff40;
+    -fx-border-width: 2;
+}
+/* Контейнер для объединенного поля */
+.combined-field {
+    -fx-background-color: #262729;
+    -fx-border-color: #11fc00;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+}
+
+/* Стили для префикса */
+.prefix {
+    -fx-background-color: #262729;
+    -fx-text-fill: #11fc00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 2px 5px 5px;
+    -fx-border-color: #11fc00;
+    -fx-border-width: 0 1px 0 0; /* Правая граница */
+    -fx-border-radius: 5px 0 0 5px; /* Закругление слева */
+    -fx-background-radius: 5px 0 0 5px;
+}
+
+/* Стили для поля ввода */
+.input-area {
+    -fx-background-color: #262729;
+    -fx-text-fill: #11fc00;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-border-width: 0;
+    -fx-border-radius: 0 5px 5px 0; /* Закругление справа */
+    -fx-background-radius: 0 5px 5px 0;
+    -fx-control-inner-background: #262729;
+}
+
+/* Убираем внутренние отступы и границы у TextArea */
+
+
+.input-area .scroll-pane .viewport {
+    -fx-background-color: #262729;
+    -fx-padding: 0;
+}
+
+.input-area .scroll-pane .content {
+    -fx-background-color: #262729;
+    -fx-padding: 0;
+}
+
+/* Стиль при фокусе для всего объединенного поля */
+.combined-field:focused-within {
+    -fx-border-color: #00ff40;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 64, 0.5), 5, 0, 0, 1);
+}
+
+/* Стиль при фокусе для префикса */
+.prefix:focused {
+    -fx-border-color: #00ff40;
+}
+
+/* Стиль при фокусе для поля ввода */
+.input-area:focused {
+    -fx-border-width: 0;
+}
+.text-area {
+    -fx-background-color: #262729;
+    -fx-border-color: #11fc00;
+    -fx-border-radius: 5;
+    -fx-border-width: 3;
+    -fx-font-size: 14px;
+    -fx-text-fill: #11fc00;
+}
+
+.input-area{
+-fx-background-color: #262729;
+}
+
+.text-area .content {
+    -fx-background-color: #262729;
+}
+
+.text-area:focused {
+    -fx-border-color: #00ff40;
+    -fx-border-width: 2;
+}
+
+
+/* Кнопки */
+.button-panel {
+    -fx-background-color: #262729;
+    -fx-border-color: #11fc00;
+    -fx-border-width: 1 0 0 0;
+}
+
+.save-button {
+    -fx-background-color: #262729;
+    -fx-text-fill: #11fc00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-color: #11fc00;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}
+
+.save-button:hover {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(46, 204, 113, 0.5), 10, 0, 0, 2);
+}
+
+
+
+/* Дополнительные стили для лучшей читаемости */
+Label {
+    -fx-text-fill: #11fc00;
+}
+
+.text-field .prompt-text {
+    -fx-fill: #5a5a5a;
+}
+
+.text-area .prompt-text {
+    -fx-fill: #5a5a5a;
+}
+
+/* Стили для выделенного текста */
+.text-input:focused {
+    -fx-highlight-fill: #11fc00;
+    -fx-highlight-text-fill: #262729;
+}
